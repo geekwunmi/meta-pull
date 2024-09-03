@@ -30,10 +30,3 @@ def basic_insights():
     print(basic_insight)
 
 basic_insights()
-
-
-
-    #turn data into dataframe
-    # df = pd.DataFrame(basic_insight['data'])
-    # df.columns = ['id', 'Timestamp', 'Username', 'Likes', 'Comments']
-    # print(df.head())
