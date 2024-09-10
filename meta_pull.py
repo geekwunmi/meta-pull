@@ -1,3 +1,4 @@
+import pandas as pd
 import requests
 import json
 import datetime as dt
@@ -13,7 +14,7 @@ def basic_insights():
     params['endpoint_base'] = params['graph_domain'] + '/' + params['graph_version'] + '/'
     params['page_id'] = ''                  # not an actual page id
     params['instagram_account_id'] = ''        # not an actual instagram business account id
-    params['ig_username'] = 'adeotaku'
+    params['ig_username'] = ''
 
     ###########################################################################
     url = params['endpoint_base'] + params['instagram_account_id'] + '/media'
@@ -26,6 +27,6 @@ def basic_insights():
     #Requests Data
     data = requests.get(url, endpointParams)
     basic_insight = json.loads(data.content)
-    print(basic_insight)
-
+    df = pd.DataFrame(basic_insight['data'])
+    return df
 basic_insights()
